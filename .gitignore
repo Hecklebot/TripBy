@@ -2,6 +2,7 @@ node_modules/
 .vscode/
 .gradle/
 .settings/
+.idea/
 bin/
 build/
 temp/
