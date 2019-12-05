@@ -11,6 +11,9 @@ repositories {
 dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
 
+    // JUnit
+    testCompile group: 'junit', name: 'junit', version: '4.13-rc-2'
+
     // MariaDB JDBC Driver
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.3'
     
