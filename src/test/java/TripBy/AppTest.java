@@ -4,7 +4,6 @@
 package TripBy;
 
 import org.junit.Test;
-import org.testng.annotations.AfterTest;
 import static org.junit.Assert.*;
 
 public class AppTest {
