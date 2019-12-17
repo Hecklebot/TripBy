@@ -21,7 +21,7 @@ public class MybatisConfig {
     sqlSessionFactoryBean.setDataSource(dataSource);
     sqlSessionFactoryBean.setTypeAliasesPackage("tripby.domain");
     sqlSessionFactoryBean
-        .setMapperLocations(appCtx.getResources("classpath:com/tripby/mapper/*Mapper.xml"));
+        .setMapperLocations(appCtx.getResources("classpath:tripby/mapper/*Mapper.xml"));
 
     return sqlSessionFactoryBean.getObject();
   }
