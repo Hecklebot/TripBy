@@ -55,6 +55,9 @@ dependencies {
     
     //lombok
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
-
+  
+    // Jackson Databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.10'
+  
     testImplementation 'junit:junit:4.12'
 }
