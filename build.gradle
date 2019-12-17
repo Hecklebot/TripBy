@@ -52,6 +52,9 @@ dependencies {
     
     // 파일 업로드 처리 (Apache Commons Fileupload)
     compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    
+    //lombok
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
 
     testImplementation 'junit:junit:4.12'
 }
