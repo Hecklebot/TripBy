@@ -11,7 +11,7 @@ import tripby.domain.TripNotesPic;
 import tripby.service.TripNotesService;
 
 @Service
-public class DefaultTripNotesService implements TripNotesService {
+public class TripNotesServiceImpl implements TripNotesService {
   
   @Resource private TripNotesDao tripNotesDao;
   @Resource private TripNotesPicDao tripNotesPicDao;
@@ -30,18 +30,18 @@ public class DefaultTripNotesService implements TripNotesService {
     tripNotesDao.increaseViewCount(tripNotesNo);
     return tripNotes;
   }
-  
+
   @Transactional
   @Override
   public void insert(TripNotes tripNotes) throws Exception {
-   if(tripNotes.getFiles().size() == 0) {
-     throw new Exception ("사진 파일 없음");
-   }
-   tripNotesDao.insert(tripNotes);
-   for(TripNotesPic file : tripNotes.getFiles()) {
-     file.setTripNotesNo(tripNotes.getTripNotesNo());
-     tripNotesPicDao.insert(file);
-   }
+    if(tripNotes.getFiles().size() == 0) {
+      throw new Exception("사진 파일 없음");
+    }
+    tripNotesDao.insert(tripNotes);
+    for(TripNotesPic file : tripNotes.getFiles()) {
+      file.setTripNotesNo(tripNotes.getTripNotesNo());
+      tripNotesPicDao.insert(file);
+    }
   }
   
   @Transactional

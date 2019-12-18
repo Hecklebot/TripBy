@@ -13,7 +13,7 @@
 		select
 			photo_id
 			, note_id
-			,file_name
+			, file_name
 	</sql>
 	<sql id="where1">
 		where photo_id=#{tripNotesPicNo}
@@ -34,5 +34,4 @@
 		delete from trip_notes_pic
 		where note_id=#{tripNotesNo}
 	</delete>
-
 </mapper>
