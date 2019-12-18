@@ -7,6 +7,6 @@
   <insert id="insert" parameterType="Member">
     insert into
       members(email, name, pwd, tel, state, grade)
-    values(#{email}, #{name}, #{password}, #{tel}, #{state}, #{grade})
+    values(#{email}, #{name}, password(#{password}), #{tel}, #{state}, #{grade})
   </insert>
 </mapper>
