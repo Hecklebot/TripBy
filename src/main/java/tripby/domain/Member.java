@@ -14,4 +14,6 @@ public class Member {
   private int state;
   private int grade;
   private int restriction;
+  
+  private String socketId;
 }

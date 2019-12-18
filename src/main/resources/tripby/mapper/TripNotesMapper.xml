@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tripby.dao.TripNotesDao">
+	<resultMap type="TripNotes" id="TripNotesMap">
+		<id column="note_id" property="tripNotesNo"/>
+		<result column="trip_plan_id" property="tripPlanNo"/>
+		<result column="titl" property="tripNotesTitle"/>
+		<result column="conts" property="tripNotesContent"/>
+		<result column="cdt" property="tripNotesCreatedDate"/>
+		<result column="vcnt" property="tripNotesViewCount"/>
+		<result column="pub_state" property="publicStatus"/>
+		<result column="trip_day" property="tripDay"/>
+	</resultMap>
+
+	<resultMap type="TripNotes" id="TripNotesWithTripNotesPicMap">
+		<id column="note_id" property="tripNotesNo"/>
+		<result column="trip_plan_id" property="tripPlanNo"/>	
+		<result column="titl" property="tripNotesTitle"/>	
+		<result column="conts" property="tripNotesContent"/>	
+		<result column="cdt" property="tripNotesCreatedDate"/>	
+		<result column="vcnt" property="tripNotesViewCount"/>	
+		<result column="pub_state" property="publicStatus"/>
+		<result column="trip_day" property="tripDay"/>	
+	
+		<collection property="files" ofType="tripNotesPic">
+			<id column="photo_id" property="tripNotesPicNo"/>
+			<result column="note_id" property="tripNotesNo"/>
+			<result column="file_name" property="tripNotesPicName"/>
+		</collection>	
+	</resultMap>
+
+	<sql id="select1">
+		select
+			note_id
+			, trip_plan_id
+			, titl
+			, conts
+			, cdt
+			, vcnt
+			, pub_state
+			, trip_day
+		from
+			trip_notes
+	</sql>
+
+	<select id="findAll">
+		<include refid="select1"/>
+		order by
+			note_id
+	</select>
+	
+	<select id="findBy" parameterType="int" resultMap="TripNotesMap">
+		<include refid="select1"/>
+		where
+			note_id=#{tripNoteNo}
+	</select>
+	
+	<select id="findWithFilesBy" parameterType="int" resultMap="TripNotesWithTripNotesPicMap">
+		select
+			tn.note_id
+			, tn.trip_plan_id
+			, tn.titl
+			, tn.conts
+			, tn.cdt
+			, tn.vcnt
+			, tn.pub_state
+			, tn.trip_day
+			, p.photo_id
+			, p.file_name
+		from
+			trip_notes tn
+				left outer join trip_notes_pic p on tn.note_id=p.note_id
+		where
+			tn.note_id=#{tripNotesNo}		
+	</select>	
+	
+	<update id="increaseViewCount" parameterType="int">
+		update trip_notes set
+			vcnt=vcnt + 1
+		where
+			note_id=#{tripNotesNo}	
+	</update>
+	
+	<insert id="insert" parameterType="TripNotes" useGeneratedKeys="true" keyColumn="note_id" keyProperty="tripNotesNo">
+		insert into trip_notes(
+			trip_plan_id
+			, titl
+			, conts
+			, cdt
+			, pub_state
+			, trip_day
+			)
+		values(
+			#{tripPlanNo}
+			, #{tripNotesTitle}
+			, #{tripNotesContent}
+			, #{now()}
+			, #{publicStatus}
+			, #{tripDay}
+		)
+	</insert>
+	
+	<update id="update" parameterType="TripNotes">
+	  update trip_notes
+	  <set>
+	  	 <if test="tripPlanNo != null">trip_plan_id=#{tripPlanNo},</if>
+	  	 <if test="tripNotesTitle != null">titl=#{tripNotesTitle},</if>
+	  	 <if test="tripNotesContent != null">conts=#{tripNotesContent},</if>
+	  	 <if test="publicStatus != null">pub_state=#{publicStatus},</if>
+	  	 <if test="tripDay != null">trip_day=#{tripDay}</if>
+	  </set>
+		where note_id=#{tripNotesNo}	  	
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from trip_notes
+		where note_id=#{tripNotesNo}	
+	</delete>
+</mapper>  
