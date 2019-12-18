@@ -22,4 +22,13 @@ public class MemberServiceImpl implements MemberService {
   public List<Member> list() {
     return memberDao.findAll();
   }
+  
+  @Override
+  public int checkEmail(Member member) {
+    if(memberDao.checkEmail(member) == null) {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
 }

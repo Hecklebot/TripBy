@@ -5,6 +5,7 @@ import tripby.domain.Member;
 
 public interface MemberDao {
   public void insert(Member member);
+  public Member checkEmail(Member member);
   public void update(int no);
   public void delete(int no);
   public List<Member> findAll();

@@ -4,9 +4,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tripby.dao.MemberDao">
   
+  <resultMap type="Member" id="memberMap">
+    <id column="mem_id" property="memberNo"/>
+    <result column="email" property="email"/>
+    <result column="name" property="name"/>
+    <result column="pwd" property="password"/>
+    <result column="tel" property="tel"/>
+    <result column="email_key" property="emailKey"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="state" property="state"/>
+    <result column="grade" property="grade"/>
+    <result column="restriction" property="restriction"/>
+  </resultMap>
+  
   <insert id="insert" parameterType="Member">
     insert into
       members(email, name, pwd, tel, state, grade)
     values(#{email}, #{name}, password(#{password}), #{tel}, #{state}, #{grade})
   </insert>
+  
+  <select id="checkEmail" resultMap="memberMap" parameterType="Member">
+    select
+      email
+    from
+      members
+    where
+      email = #{email}
+  </select>
 </mapper>
