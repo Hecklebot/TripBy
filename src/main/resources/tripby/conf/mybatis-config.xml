@@ -24,5 +24,8 @@
       </dataSource>
     </environment>
   </environments>
+  <mappers>
+    <mapper resource="tripby/mapper/MemberMapper.xml"/>
+  </mappers>
 
 </configuration>
