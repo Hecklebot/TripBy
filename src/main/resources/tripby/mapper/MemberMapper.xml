@@ -2,5 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="tripby.MemberDao">
+<mapper namespace="tripby.dao.MemberDao">
+  
+  <insert id="insert" parameterType="Member">
+    insert into
+      members(email, name, pwd, tel, state, grade)
+    values(#{email}, #{name}, password(#{password}), #{tel}, #{state}, #{grade})
+  </insert>
 </mapper>
