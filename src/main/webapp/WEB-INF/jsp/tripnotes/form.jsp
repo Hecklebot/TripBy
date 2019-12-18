@@ -10,10 +10,10 @@
 	<div>
 		<form action="add" method="post">
 			<div>
-				<input type="text" id="" name="" placeholder="제목을 입력해주세요">
-				<input type="date" id="" name="">	
+				<input type="text" id="tripNotesTitle" name="tripNotesTitle" placeholder="제목을 입력해주세요">
+				<input type="date" id="tripDay" name="tripDay">	
 			</div>
-			<textarea id="" name="" rows="10" cols="30" placeholder="내용을 입력해주세요"></textarea>
+			<textarea id="tripNotesContent" name="tripNotesContent" rows="10" cols="30" placeholder="내용을 입력해주세요"></textarea>
 			<div>
 				<input type="radio" name="publicStatus">공개
 				<input type="radio" name="publicStatus">비공개
