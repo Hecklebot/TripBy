@@ -9,9 +9,4 @@ public interface TripNotesService {
   void insert(TripNotes tripNotes) throws Exception;
   void update(TripNotes tripNotes) throws Exception;
   void delete(int tripNotesNo) throws Exception;
-  
-  
-  
-  
-  
 }

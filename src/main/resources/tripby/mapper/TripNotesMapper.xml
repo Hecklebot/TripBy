@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tripby.dao.TripNotesDao">
-
 	<resultMap type="TripNotes" id="TripNotesMap">
 		<id column="note_id" property="tripNotesNo"/>
 		<result column="trip_plan_id" property="tripPlanNo"/>
@@ -13,6 +12,7 @@
 		<result column="cdt" property="tripNotesCreatedDate"/>
 		<result column="vcnt" property="tripNotesViewCount"/>
 		<result column="pub_state" property="publicStatus"/>
+		<result column="trip_day" property="tripDay"/>
 	</resultMap>
 
 	<resultMap type="TripNotes" id="TripNotesWithTripNotesPicMap">
@@ -22,7 +22,8 @@
 		<result column="conts" property="tripNotesContent"/>	
 		<result column="cdt" property="tripNotesCreatedDate"/>	
 		<result column="vcnt" property="tripNotesViewCount"/>	
-		<result column="pub_state" property="publicStatus"/>	
+		<result column="pub_state" property="publicStatus"/>
+		<result column="trip_day" property="tripDay"/>	
 	
 		<collection property="files" ofType="tripNotesPic">
 			<id column="photo_id" property="tripNotesPicNo"/>
@@ -34,12 +35,13 @@
 	<sql id="select1">
 		select
 			note_id
-			,trip_plan_id
-			,titl
-			,conts
-			,cdt
-			,vcnt
-			,pub_state
+			, trip_plan_id
+			, titl
+			, conts
+			, cdt
+			, vcnt
+			, pub_state
+			, trip_day
 		from
 			trip_notes
 	</sql>
@@ -59,14 +61,15 @@
 	<select id="findWithFilesBy" parameterType="int" resultMap="TripNotesWithTripNotesPicMap">
 		select
 			tn.note_id
-			,tn.trip_plan_id
-			,tn.titl
-			,tn.conts
-			,tn.cdt
-			,tn.vcnt
-			,tn.pub_state
-			,p.photo_id
-			,p.file_name
+			, tn.trip_plan_id
+			, tn.titl
+			, tn.conts
+			, tn.cdt
+			, tn.vcnt
+			, tn.pub_state
+			, tn.trip_day
+			, p.photo_id
+			, p.file_name
 		from
 			trip_notes tn
 				left outer join trip_notes_pic p on tn.note_id=p.note_id
@@ -84,14 +87,19 @@
 	<insert id="insert" parameterType="TripNotes" useGeneratedKeys="true" keyColumn="note_id" keyProperty="tripNotesNo">
 		insert into trip_notes(
 			trip_plan_id
-			,titl
-			,conts
-			,pub_state)
+			, titl
+			, conts
+			, cdt
+			, pub_state
+			, trip_day
+			)
 		values(
 			#{tripPlanNo}
-			,#{tripNotesTitle}
-			,{tripNotesContent}
-			,{publicStatus}
+			, #{tripNotesTitle}
+			, #{tripNotesContent}
+			, #{now()}
+			, #{publicStatus}
+			, #{tripDay}
 		)
 	</insert>
 	
@@ -101,7 +109,8 @@
 	  	 <if test="tripPlanNo != null">trip_plan_id=#{tripPlanNo},</if>
 	  	 <if test="tripNotesTitle != null">titl=#{tripNotesTitle},</if>
 	  	 <if test="tripNotesContent != null">conts=#{tripNotesContent},</if>
-	  	 <if test="publicStatus != null">pub_state=#{publicStatus}</if>
+	  	 <if test="publicStatus != null">pub_state=#{publicStatus},</if>
+	  	 <if test="tripDay != null">trip_day=#{tripDay}</if>
 	  </set>
 		where note_id=#{tripNotesNo}	  	
 	</update>
