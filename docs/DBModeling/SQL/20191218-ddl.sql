@@ -203,7 +203,7 @@ CREATE TABLE chats (
   chat_id INTEGER    NOT NULL, -- 채팅번호
   dat     DATETIME   NOT NULL, -- 날짜
   conts   TEXT       NOT NULL, -- 내용
-  is_read TINYINT(1) NOT NULL DEFAULT false -- 읽음
+  is_read    TINYINT(1) NOT NULL DEFAULT false -- 읽음
 );
 
 -- 채팅
