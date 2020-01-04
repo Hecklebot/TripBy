@@ -24,7 +24,17 @@ public class WebConfig implements WebMvcConfigurer {
   
   @Bean
   public ViewResolver viewResolver() {
-    InternalResourceViewResolver vr = new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
+    InternalResourceViewResolver vr =
+        new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
+    vr.setOrder(1);
+    return vr;
+  }
+  
+  @Bean
+  public ViewResolver htmlViewResolver() {
+    InternalResourceViewResolver vr =
+        new InternalResourceViewResolver("/WEB-INF/html/", ".html");
+        vr.setOrder(2);
     return vr;
   }
 }
