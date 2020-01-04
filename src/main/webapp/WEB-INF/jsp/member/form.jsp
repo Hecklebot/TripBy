@@ -34,11 +34,17 @@
       }).then(function(res) {
     	  return res.json()
       }).then(function(json){
+    	  if (email.value === '') {
+          emailCheck.style.display = "inline";
+          emailCheck.style.color = "red";
+          emailCheck.innerText = "이메일을 입력하십시오.\n";
+          return;
+        }
     	  if(json.checked == 0){
     		  emailCheck.style.display="inline";
     		  emailCheck.style.color="green";
     		  emailCheck.innerText="사용 가능한 이메일입니다.\n"
-    	  } else {
+    	  } else if (json.checked == 1){
     		  emailCheck.style.display = "inline";
     		  emailCheck.style.color = "red";
     		  emailCheck.innerText = "중복된 이메일입니다.\n";
