@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>companion_detail</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/animate.css">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/magnific-popup.css">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/aos.css">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/ionicons.min.css">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/jquery.timepicker.css">
+
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/flaticon.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/icomoon.css">
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/style.css">
+
+  <!-- Calendar CSS-->
+  <link href='/TripBy/src/main/webapp/css/fullcalendar.css' rel='stylesheet' />
+  <link href='/TripBy/src/main/webapp/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+  <link href="/TripBy/src/main/webapp/css/companion/companion_calendar.css" rel='stylesheet' />
+
+  <!-- My Custom CSS-->
+  <link rel="stylesheet" href="/TripBy/src/main/webapp/css/companion/companion_detail.css">
+
+</head>
+
+<body>
+
+  <section class="hero-wrap hero-wrap-2 js-fullheight"
+    style="background-image: url('/TripBy/src/main/webapp/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+        <div class="col-md-9 ftco-animate pb-5">
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">동행 <i
+                  class="ion-ios-arrow-forward"></i></a></span> <span>나의 동행 정보 <i
+                class="ion-ios-arrow-forward"></i></span></p>
+          <h1 class="mb-3 bread">나의 동행 정보</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container my-container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center heading-section">
+        <h2 class="my-3">동행 일시</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <div id='wrap'>
+          <div id='calendar'></div>
+          <div style='clear:both'></div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center heading-section">
+        <h2 class="my-3">동행 장소</h2>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col">
+        <div id="map" style="height:27em;"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 동행 리스트 슬라이더1 시작-->
+  <section class="ftco-section testimony-section pb-0">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-12 text-center heading-section ftco-animate">
+          <span class="subheading">5일 동행예정</span>
+          <h2 class="mb-3">공지: 어디에서 몇시에 만나요</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate">
+        <div class="col-md-12">
+          <div class="carousel-testimony owl-carousel ftco-owl">
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott1</p>
+                  <span class="position">Marketing Manager</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott2</p>
+                  <span class="position">Interface Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott3</p>
+                  <span class="position">UI Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott4</p>
+                  <span class="position">Web Developer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott5</p>
+                  <span class="position">System Analyst</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col text-right mb-3">
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black mr-1">공지 변경</a>
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black mx-1">채팅방</a>
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black ml-1">동행 떠나기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 동행 리스트 슬라이더1 끝-->
+
+  <!-- 동행 리스트 슬라이더2 시작-->
+  <section class="ftco-section testimony-section pb-0">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-12 text-center heading-section ftco-animate">
+          <span class="subheading">6일 동행예정</span>
+          <h2 class="mb-3">공지: 어디에서 몇시에 만나요</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate">
+        <div class="col-md-12">
+          <div class="carousel-testimony owl-carousel ftco-owl">
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott1</p>
+                  <span class="position">Marketing Manager</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott2</p>
+                  <span class="position">Interface Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott3</p>
+                  <span class="position">UI Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott4</p>
+                  <span class="position">Web Developer</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="testimony-wrap text-center py-4 pb-5">
+                <div class="user-img mb-4"
+                  style="background-image: url(/TripBy/src/main/webapp/images/profile_temp.jpg)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+                    Consonantia, there live the blind texts.</p>
+                  <p class="name">Roger Scott5</p>
+                  <span class="position">System Analyst</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col text-right mb-3">
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black mr-1">공지 변경</a>
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black mx-1">채팅방</a>
+          <a href="javascript:void(0);" class="btn btn-black btn-outline-black ml-1">동행 떠나기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 동행 리스트 슬라이더2 끝-->
+
+
+  <script src="/TripBy/src/main/webapp/js/jquery.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/popper.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/bootstrap.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.easing.1.3.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.waypoints.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.stellar.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/owl.carousel.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.magnific-popup.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/aos.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.animateNumber.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/bootstrap-datepicker.js"></script>
+  <script src="/TripBy/src/main/webapp/js/jquery.timepicker.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/scrollax.min.js"></script>
+  <script src="/TripBy/src/main/webapp/js/main.js"></script>
+
+
+  <!-- Daum Map Api-->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca85e6923b8d86305fff6929d07505e3"></script>
+  <script src="/TripBy/src/main/webapp/js/companion/initialiseMap.js"></script>
+
+
+  <!-- Simple Calender Js
+  <script src="/TripBy/src/main/webapp/js/jquery.simple-calendar.min.js"></script> -->
+
+  <!-- Calendar Js-->
+  <script src='/Tripby/src/main/webapp/js/jquery-ui.custom.min.js' type="text/javascript"></script>
+  <script src='/Tripby/src/main/webapp/js/fullcalendar.js' type="text/javascript"></script>
+  <script src="/TripBy/src/main/webapp/js/companion/companion_calendar.js"></script>
+
+  <!-- My Custom Js-->
+  <script src="/TripBy/src/main/webapp/js/companion/initialiseMap.js"></script>
+  <script src="/TripBy/src/main/webapp/js/companion/companion_detail.js"></script>
+
+</body>
+
+</html>

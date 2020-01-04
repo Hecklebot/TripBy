@@ -1,0 +1,13 @@
+/* 
+.my-container * {
+  border: 1px solid powderblue;
+} */
+
+#calendar > div > div > table > tbody > tr.fc-week > td.fc-day.fc-widget-content > div > div.fc-day-number {
+  min-width: 38px;
+}
+
+.btn-prev, .btn-next {
+  padding-top: 0px;
+  padding-left: 8px;
+}
