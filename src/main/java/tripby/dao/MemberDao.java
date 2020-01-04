@@ -10,4 +10,6 @@ public interface MemberDao {
   public void delete(int no);
   public List<Member> findAll();
   public Member findBy(int no);
+  public Member findEmail(Member member);
+  public Member login(Member member);
 }

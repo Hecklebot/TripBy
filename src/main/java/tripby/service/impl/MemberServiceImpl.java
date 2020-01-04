@@ -31,4 +31,20 @@ public class MemberServiceImpl implements MemberService {
       return 1;
     }
   }
+
+  @Override
+  public Member findEmail(Member member) {
+    if(memberDao.findEmail(member) == null) {
+      return null;
+    }
+    return memberDao.findEmail(member);
+  }
+  
+  @Override
+  public Member login(Member member) {
+    if(memberDao.login(member) == null) {
+      return null;
+    }
+    return memberDao.login(member);
+  }
 }

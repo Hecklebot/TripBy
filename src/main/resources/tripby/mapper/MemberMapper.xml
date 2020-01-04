@@ -31,4 +31,23 @@
     where
       email = #{email}
   </select>
+
+  <select id="findEmail" resultMap="memberMap" parameterType="Member">
+    select
+      email
+    from
+      members
+    where
+      tel=#{tel}
+  </select>
+  
+  <select id="login" resultMap="memberMap" parameterType="Member">
+    select
+      *
+    from
+      members
+    where
+      email=#{email} and pwd=password(#{password})
+  </select>
+
 </mapper>
