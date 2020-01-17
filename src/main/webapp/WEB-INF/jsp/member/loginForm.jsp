@@ -29,7 +29,7 @@
     // email 찾기
     let inputPhoneNum = document.getElementById('input-tel');
     let findBtn = document.getElementById('find-email');
-   
+    console.debug('debug');
     findBtn.addEventListener('click', (e) => {
       data = {
         "tel": inputPhoneNum.value
@@ -39,11 +39,16 @@
         headers: {
           "Content-type":"application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       }).then((res) => {
+    	  console.log('res.data', res.data)
         return res.json()
       }).then((json) => {
         alert("email: " + json.findValue);
+      }).then(res => {
+    	  if(res.redirected) {
+    		  res.redirect(form)
+    	  }
       })
     })
     
@@ -61,12 +66,18 @@
         method: 'POST',
         headers: {
           "Content-type": "application/json"
-        },  
-        body: JSON.stringify(data)
+        },
+        redirect: 'follow',
+        body: JSON.stringify(data),
       }).then(res => {
+        console.debug(res.redirected);
         return res.json();
       }).then(json => {
     	  alert("welcome, " + json.name);
+      }).then(res => {
+    	  if(res.redirected) {
+    		  res.redirect('form');
+    	  }
       })
     })
     
