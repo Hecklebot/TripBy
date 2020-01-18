@@ -77,7 +77,7 @@
     // 이메일 중복 검사
     inputEmail.addEventListener('blur', e => {
       if(!inputEmail.value.length) { // 입력한 이메일이 없으면
-          emailCheck.style.display='none'; // 아래 메세지를 안보이게 하고
+          emailCheck.style.display='none'; // 아래 메세지를 안보이게 하고 
           return; // 이벤트 종료
         }
     	const data = {
