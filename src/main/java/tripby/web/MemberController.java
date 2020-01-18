@@ -1,7 +1,5 @@
 package tripby.web;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -29,24 +27,19 @@ public class MemberController {
   public String add(Member member) {
     System.out.println(member);
     memberService.insert(member);
-    return "redirect:../member/form";
+    return "redirect:../member/loginForm";
   }
   
   @PostMapping("checkEmail")
   @ResponseBody
-  public Map<String, Integer> checkEmail(@RequestBody Member member) {
-    Map<String, Integer> checkMap = new HashMap<>();
-    checkMap.put("checked", memberService.checkEmail(member));
-    return checkMap;
+  public String checkEmail(@RequestBody Member member) {
+    return new Gson().toJson(memberService.checkEmail(member));
   }
 
   @PostMapping("findEmail")
   @ResponseBody
-  public Map<String, String> findEmail(@RequestBody Member member) {
-    System.out.println(new Gson().toJson(memberService.findEmail(member)));
-    Map<String, String> findMap = new HashMap<>();
-    findMap.put("findValue", memberService.findEmail(member).getEmail());
-    return findMap;
+  public String findEmail(@RequestBody Member member) {
+    return new Gson().toJson(memberService.findEmail(member));
   }
   
   @GetMapping("loginForm")
