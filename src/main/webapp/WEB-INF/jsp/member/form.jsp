@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
+<body>
  <section class="ftco-section services-section img" style="background-image: url(image/bg_1.jpg);">
   <div class="hero-wrap" style="background-image: url('https://post-phinf.pstatic.net/MjAxOTExMDVfMTA3/MDAxNTcyOTQ2NTcyNDIw.vtq-hO1QgSyUGDtvaYImL1jsxPY9OGCiWPttUHGOdCEg.QMZENaxRXoGbySgZXYX14T3LZlV7LGK-al9oz24aTHkg.JPEG/6dxow23eff21tzf0t6z3.jpg?type=w1200');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -29,8 +30,8 @@
       <div class="row no-gutters slider-text justify-content-start align-items-center">
         <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
           <div class="text">
-            <h1 class="mb-4">Now <span>It's easy for you</span> <span>rent a car</span></h1>
-            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
+            <h1 class="mb-4">Now <span>It's easy for you</span> <span>have a trip</span></h1>
+            <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
         <div class="col-lg-2 col"></div>
@@ -60,12 +61,15 @@
             <input type="hidden" name="state" id="state" value="1">
             <input type="hidden" name="grade" id="grade" value="1">
             <button type="submit" id="sign-in-btn" class="btn btn-primary py-10 px-6">Sign up</button>
+            <button type="button" id="sign-in-btn" class="btn btn-primary py-10 px-6" onclick="location.href='loginForm'">Sign in</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+</body>
+
   <script>
     const inputEmail = document.querySelector('#email');
     const inputPassword = document.querySelector('#password');
@@ -82,10 +86,12 @@
         }
     	const data = {
     		email: inputEmail.value,
-    	};
+      };
+      
       const checkValue = axios.post('checkEmail', {
     	  email: inputEmail.value,
       });
+
       checkValue.then(res => {
     	  if(res.data) { // 넘어온 값이 0이 아니면
     		  emailCheck.style.display='block';
@@ -102,7 +108,7 @@
     });
     
     // 비밀번호 검사
-    inputPassword.addEventListener('blur', e => {
+    inputPassword.addEventListener('blur', () => {
       console.debug(passwordRegex.test(inputPassword.value));
       if(!passwordRegex.test(inputPassword.value)) {
     	  passwordCheck.innerText='숫자, 영어, 특수문자 8 ~ 15자로 입력해주세요.';
@@ -136,5 +142,4 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="/js/google-map.js"></script>
   <script src="/js/main.js"></script>
-</body>
 </html>

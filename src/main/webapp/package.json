@@ -11,6 +11,11 @@
   "dependencies": {
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
-    "sockjs-client": "^1.4.0"
-  }
+    "browserslist": "^4.8.5",
+    "sockjs-client": "^1.4.0",
+    "yarn": "^1.21.1"
+  },
+  "browserslist": [
+    "not IE all"
+  ]
 }
