@@ -16,6 +16,11 @@
     "yarn": "^1.21.1"
   },
   "browserslist": [
-    "not IE all"
+    "production": [
+      "not ie"
+    ],
+    "development": [
+      "not ie"
+    ]
   ]
 }
