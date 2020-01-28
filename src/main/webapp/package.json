@@ -15,12 +15,12 @@
     "sockjs-client": "^1.4.0",
     "yarn": "^1.21.1"
   },
-  "browserslist": [
+  "browserslist": {
     "production": [
       "not ie"
     ],
     "development": [
       "not ie"
     ]
-  ]
+  }
 }
