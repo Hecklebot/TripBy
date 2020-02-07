@@ -1,0 +1,18 @@
+{
+    "editor.tabSize": 2,
+    "javascript.format.enable": false,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
+    "typescript.format.insertSpaceAfterCommaDelimiter": false,
+    "eslint.packageManager": "yarn",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "prettier.packageManager": "yarn"
+}
